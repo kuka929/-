@@ -6,6 +6,68 @@
 #include<math.h>
 #include<time.h>
 
+int fib(int n)
+{
+	int a = 1;
+	int b = 1;
+	int c = 1;
+	while (n > 2)
+	{
+		c = a + b;
+		a = b;
+		b = c;
+		n--;
+	}
+	return c;
+}
+
+int main()
+{
+	int n = 0;
+	int ret = 0;
+	scanf("%d", &n);
+	ret = fib(n);
+	printf("%d\n", ret);
+}
+
+//描述第n个斐波那契数
+int fib(int n)
+{
+	if (n <= 2)
+		return 1;
+	else
+		return fib(n - 1) + fib(n - 2);//每一次都要算前面两个数，重复，效率低,所以用循环
+}
+
+int main()
+{
+	int n = 0;
+	int ret = 0;
+	scanf("%d", &n);
+	ret = fib(n);
+	printf("%d\n", ret);
+	return 0;
+}
+
+//用递归求n的阶乘
+int fac(int n)
+{
+	if (n <= 1)
+		return 1;
+	else
+		return n*fac(n - 1);
+}
+
+int main()
+{
+	int n = 0;
+	int ret = 0;
+	scanf("%d", &n);
+	ret = fac(n);
+	printf("%d\n", ret);
+	return 0;
+}
+
 //自定义函数二分法查找
 int binary_search(int arr[], int k, int sz)
 {
