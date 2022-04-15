@@ -1,0 +1,40 @@
+#include<stdlib.h>
+#include<stdio.h>
+#include<time.h>
+
+#define MAX_STAGE 10
+
+int main()
+{
+	int no = 0;//读取的值
+	int stage = 0;//已输入的次数
+	int i = 0;
+	srand(time(NULL));//随机数种子
+	int ans = rand() % 1000;//目标数字
+	int num[MAX_STAGE] = { 0 };//存放猜过的数字记录的数组
+	printf("请猜一个0~999的整数\n\n");
+	do
+	{
+		printf("还剩%d次机会，是多少呢：", MAX_STAGE - stage);
+		scanf("%d", &no);
+		num[stage++] = no;
+		if (no > ans)
+			printf("\a再小一点\n");
+		else if (no < ans)
+			printf("\a再大一点\n");
+	} while (no != ans&&stage < MAX_STAGE);
+	if (no != ans)
+		printf("\a很遗憾，正确答案是%d\n", ans);
+	else
+	{
+		printf("回答正确\n");
+		printf("您用了%d次猜中了\n", stage);
+	}
+	puts("\n---输入记录---");
+	for (i = 0; i < stage; i++)
+	{
+		printf("%d ", num[i]);
+	}
+	printf("\n");
+	return 0;
+}
