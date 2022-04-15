@@ -12,28 +12,34 @@ int main()
 {
 	int a;
 	srand(time(NULL));
-	a = rand() % 7;
+	a = rand() % 13;
 	switch (a)
 	{
 	case 0:
+	case 1:
+	case 2:
 		printf("今日大吉\n");
 		break;
-	case 1:
+	case 3:
+	case 4:
+	case 5:
 		printf("今日中吉\n");
 		break;
-	case 2:
+	case 6:
+	case 7:
 		printf("今日小吉\n");
 		break;
-	case 3:
+	case 8:
+	case 9:
 		printf("今日吉\n");
 		break;
-	case 4:
+	case 10:
 		printf("今日末吉\n");
 		break;
-	case 5:
+	case 11:
 		printf("今日凶\n");
 		break;
-	case 6:
+	case 12:
 		printf("今日大凶\n");
 		break;
 	}
