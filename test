@@ -6,6 +6,40 @@
 #include<math.h>
 #include<time.h>
 
+
+//求签
+int main()
+{
+	int a;
+	srand(time(NULL));
+	a = rand() % 7;
+	switch (a)
+	{
+	case 0:
+		printf("今日大吉\n");
+		break;
+	case 1:
+		printf("今日中吉\n");
+		break;
+	case 2:
+		printf("今日小吉\n");
+		break;
+	case 3:
+		printf("今日吉\n");
+		break;
+	case 4:
+		printf("今日末吉\n");
+		break;
+	case 5:
+		printf("今日凶\n");
+		break;
+	case 6:
+		printf("今日大凶\n");
+		break;
+	}
+	return 0;
+}
+
 //递归求n的k次方
 double Pow(int n, int k)
 {
