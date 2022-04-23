@@ -6,6 +6,140 @@
 #include<math.h>
 #include<time.h>
 
+//逐个显示字符，完毕后再从后往前逐个消去字符
+int main()
+{
+	int i;
+	char name[] = "Liu Cuiyu";
+	int name_len = strlen(name);
+	while(1)
+	{
+		for (i = 0; i < name_len; i++)
+		{
+			putchar(name[i]);
+			Sleep(1000);
+		}
+		for (i = 0; i < name_len; i++)
+		{
+			printf("\b \b");
+			Sleep(1000);
+		}
+	}
+	return 0;
+}
+
+//自己实现sleep函数
+int my_sleep(unsigned long x)
+{
+	clock_t c1 = clock(), c2;
+	do
+	{
+		if ((c2 = clock()) == (clock_t)-1)//错误
+			return 0;
+	} while (1000.0*(c2 - c1) / CLOCKS_PER_SEC < x);
+	return 1;
+}
+int main()
+{
+	printf("等待两秒后结束\n");
+	my_sleep(2000);
+	return 0;
+}
+
+//心算训练
+int main()
+{
+	int a, b, c;                               //要进行加法运算的数值
+	int x;                                     //读取的计算结果
+	clock_t start, end;                        //开始时间和结束时间
+	double req_time;                           //所需时间
+	srand(time(NULL));
+	a = 100 + rand() % 900;                    //生成100~999的随机数
+	b = 100 + rand() % 900;
+	c = 100 + rand() % 900;
+	printf("%d+%d+%d=", a, b, c);
+	start = clock();
+	while (1)
+	{
+		scanf("%d", &x);
+		if (x == a + b + c)
+			break;
+		else
+			printf("\a回答错误！！\n请重新输入；");
+	}
+	end = clock();
+	req_time = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("用时%.1f秒。\n", req_time);
+	if (req_time > 30.0)
+		printf("太慢了吧。\n");
+	else if (req_time > 17.0)
+		printf("还行吧。\n");
+	else
+		printf("卧槽好快。\n");
+	return 0;
+}
+
+//倒计时，并且计算程序跑了多久
+int main()
+{
+	int i = 0;
+	clock_t c;
+	for (i = 10; i >= 0; i--)
+	{
+		printf("\r%2d", i);
+		fflush(stdout);
+		Sleep(1000);
+	}
+	printf("\r\aFIRE!!!\n");
+	c = clock();
+	printf("程序开始运行后经过了%.1f秒。\n", (double)c / CLOCKS_PER_SEC);
+	return 0;
+}
+
+//回车符\r，重写行
+int main()
+{
+	printf("后知后觉，我当初好像好喜欢你");
+	fflush(stdout);
+	Sleep(3000);
+	printf("\r后知后觉，大家好像都知道了，也包括你");
+	fflush(stdout);
+	Sleep(3000);
+	printf("\r而我还在你把手放在我衣服帽子下面取暖的时候傻傻的一动不动，感受自己的心跳");
+	fflush(stdout);
+	Sleep(3000);
+	printf("\r最后得出结论：心跳没有加快，我不喜欢你                                  ");
+	fflush(stdout);
+	Sleep(3000);
+	printf("\r毕业，大家一起去唱歌，你可能是在成全我，说，我们合唱一首吧，你选歌，我说好");
+	fflush(stdout);
+	Sleep(3000);
+	printf("\r然后就突然停电了...                                                       ");
+	fflush(stdout);
+	Sleep(3000);
+	printf("\r老板退了一部分钱，我们各自离开了                                          \n");
+	return 0;
+}
+
+//退格符\b，每隔1秒消去一个字符
+int main()
+{
+	int i = 0;
+	printf("ABCDEFG");
+	for (i = 0; i < 7; i++)
+	{
+		Sleep(1000);
+		printf("\b \b");
+		fflush(stdout);//清空缓冲区
+	}
+	return 0;
+}
+
+//声音
+int main()
+{
+	printf("\a");//有声音！！！蜂鸣音
+}
 
 //求签
 int main()
