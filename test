@@ -6,6 +6,37 @@
 #include<math.h>
 #include<time.h>
 
+//结构体
+typedef struct Stu
+{
+	char name[20];
+	int age;
+	char tele[12];
+	char sex[5];
+}Stu;
+void print1(Stu tmp)
+{
+	printf("name:%s\n", tmp.name);
+	printf("age :%d\n", tmp.age);
+	printf("tele:%s\n", tmp.tele);
+	printf("sex :%s\n", tmp.sex);
+}
+void print2(Stu* sp)
+{
+	printf("name:%s\n", sp->name);
+	printf("age :%d\n", sp->age);
+	printf("name:%s\n", sp->tele);
+	printf("name:%s\n", sp->sex);
+}
+int main()
+{
+	Stu s = { "刘翠玉",22,"15273175415","女" };
+	print1(s);
+	printf("\n");
+	print2(&s);//print2好，节省空间
+	return 0;
+}
+
 //逐个显示字符，完毕后再从后往前逐个消去字符
 int main()
 {
