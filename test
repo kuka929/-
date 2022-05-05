@@ -6,6 +6,26 @@
 #include<math.h>
 #include<time.h>
 
+//完美的my_strcpy
+char* my_strcpy(char* dest,const char* src)//有返回值就可以在其他函数里调用，链式。加const防止两个字符串传参搞反
+{
+	char* ret = dest;
+	assert(dest != NULL);//断言，防止传来不合法指针，如空指针
+	assert(src != NULL);
+	while (*dest++ = *src++)
+	{
+		;
+	}
+	return ret;
+}
+int main()
+{
+	char arr1[] = "##################";
+	char arr2[] = "lcy";
+	printf("%s\n", my_strcpy(arr1, arr2));
+	return 0;
+}
+
 //my_strcpy
 void my_strcpy(char* dest, char* src)
 {
