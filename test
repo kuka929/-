@@ -5,6 +5,7 @@
 #include<stdlib.h>
 #include<math.h>
 #include<time.h>
+#include<assert.h>
 
 //完美的my_strcpy
 char* my_strcpy(char* dest,const char* src)//有返回值就可以在其他函数里调用，链式。加const防止两个字符串传参搞反
