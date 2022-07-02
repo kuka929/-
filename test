@@ -7,6 +7,33 @@
 #include<time.h>
 #include<assert.h>
 
+//my_strcat
+my_strcat(char* dest, const char* src)
+{
+	assert(dest);
+	assert(src);//assert(dest&&src)也行
+	char* ret = dest;
+	//1.找到目的字符串的'\0'
+	while (*dest != '\0')
+	{
+		dest++;
+	}
+	//2.把源字符串追加过去，即cpy
+	while (*dest++ = *src++)
+	{
+		;
+	}
+	return ret;
+}
+int main()
+{
+	char arr1[30] = "hello ";
+	char arr2[] = "world";
+	my_strcat(arr1, arr2);
+	printf("%s\n", arr1);
+	return 0;
+}
+
 //从杨氏矩阵中找一个数
 //杨氏矩阵，即矩阵从左至右递增，从上到下递增
 //要求时间复杂度小于O(N)//就是不能遍历
