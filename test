@@ -7,6 +7,34 @@
 #include<time.h>
 #include<assert.h>
 
+//my_strcmp
+int my_strcmp(const char* str1, const char* str2)
+{
+	assert(str1 && str2);
+	while (*str1 == *str2)
+	{
+		if (*str1 == '\0')
+			return 0;
+		str1++;
+		str2++;
+	}
+	return *str1 - *str2;
+}
+int main()
+{
+	char* p1 = "abc";
+	char* p2 = "abc";
+	int ret = my_strcmp(p1, p2);
+	printf("%d\n", ret);
+	if (ret > 0)
+		printf("p1>p2\n");
+	else if (ret < 0)
+		printf("p1<p2\n");
+	else
+		printf("p1=p2\n");
+	return 0;
+}
+
 //my_strcat
 my_strcat(char* dest, const char* src)
 {
