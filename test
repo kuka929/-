@@ -7,6 +7,42 @@
 #include<time.h>
 #include<assert.h>
 
+//my_strstr
+char* my_strstr(const char* p1, const char* p2)
+{
+	assert(p1 != NULL);
+	assert(p2 != NULL);
+	char* s1 = NULL;
+	char* s2 = NULL;
+	char* cur = (char*)p1;//cur记住两个字符串第一个相等字符的位置
+	if (*p2 == '\0')
+		return (char*)p1;//第二个字符串为空，直接返回第一个字符串
+	while (*cur)
+	{
+		s1 = cur;
+		s2 = (char*)p2;
+		while (*s1 && *s2 && (*s1 == *s2))
+		{
+			s1++;
+			s2++;
+		}
+		if (*s2 == '\0')
+			return cur;//找到了
+		if (*s1 == '\0')
+			return NULL;//第一个串都到'\0'了，肯定找不到了
+		cur++;
+	}
+	return NULL;
+}
+int main()
+{
+	char* p1 = "abbbcde";
+	char* p2 = "bbc";
+	char* ret = my_strstr(p1, p2);
+	printf("%s\n", ret);
+	return 0;
+}
+
 //my_strncat
 char* my_strncat(char* dest, const char* src, size_t count)
 {
